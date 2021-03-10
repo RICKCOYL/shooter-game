@@ -1,11 +1,10 @@
 import Phaser from 'phaser';
-import SceneMainMenu from './assests/componets/SceneMainMenu';
-import SceneMain from './assests/componets/SceneMain';
-import SceneGameOver from './assests/componets/SceneGameOver';
-import { Entity, Player } from './assests/componets/Entities';
+import { SceneMainMenu } from './components/SceneMainMenu';
+import { SceneMain } from './components/SceneMain';
+import { SceneGameOver } from './components/SceneGameOver';
 
 const config = {
-    type: Phaser.WEBGL,
+    type: Phaser.AUTO,
     width: 480,
     height: 640,
     backgroundColor: "black",
@@ -23,6 +22,5 @@ const config = {
     pixelArt: true,
     roundPixels: true
 };
-
 
 const game = new Phaser.Game(config);

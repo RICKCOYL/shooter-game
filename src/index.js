@@ -2,11 +2,13 @@ import Phaser from 'phaser';
 import { SceneMainMenu } from './components/SceneMainMenu';
 import { SceneMain } from './components/SceneMain';
 import { SceneGameOver } from './components/SceneGameOver';
+import BootScene from './components/bootsscene';
+import Preloaderscene from './components/preloaderscene';
 
 const config = {
     type: Phaser.AUTO,
-    width: 480,
-    height: 640,
+    width: 800,
+    height: 600,
     backgroundColor: "black",
     physics: {
         default: "arcade",
@@ -15,6 +17,8 @@ const config = {
         }
     },
     scene: [
+        BootScene,
+        Preloaderscene,
         SceneMainMenu,
         SceneMain,
         SceneGameOver

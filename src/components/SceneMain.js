@@ -1,6 +1,4 @@
 import Phaser from 'phaser';
-import image0 from '../assests/sprBg0.png';
-import image1 from '../assests/sprBg1.png';
 import explosions from '../assests/sprExplosion.png';
 import enemy0 from '../assests/sprEnemy0.png';
 import enemy1 from '../assests/sprEnemy1.png';
@@ -11,7 +9,7 @@ import player from '../assests/sprPlayer.png';
 import explodeEffect0 from '../assests/sndExplode0.wav';
 import explodeEffect1 from '../assests/sndExplode1.wav';
 import laserSound from '../assests/sndLaser.wav';
-import { Player, GunShip, ChaserShip, CarrierShip, ScrollingBackground } from './Entities';
+import { Player, GunShip, ScrollingBackground } from './Entities';
 
 
 

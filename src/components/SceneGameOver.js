@@ -1,10 +1,23 @@
 import Phaser from 'phaser';
 import { ScrollingBackground } from './Entities';
+import sndBtnOver from '../assests/sndBtnOver.wav';
+import restart from '../assests/sprBtnRestart.png';
+import soundDown from '../assests/sndBtnDown.wav';
+import restartHover from '../assests/sprBtnRestartHover.png';
+
+
 
 
 export class SceneGameOver extends Phaser.Scene {
     constructor() {
         super({ key: "SceneGameOver" });
+    }
+
+    preload() {
+        this.load.image("sprBtnRestart", restart);
+        this.load.image("sprBtnRestartHover", restartHover);
+        this.load.audio("sndBtnOver", sndBtnOver);
+        this.load.audio('sndBtnDown', soundDown);
     }
     create() {
 
@@ -12,7 +25,7 @@ export class SceneGameOver extends Phaser.Scene {
             fontFamily: 'monospace',
             fontSize: 48,
             fontStyle: 'bold',
-            color: '#ffffff',
+            color: 'red',
             align: 'center'
         });
         this.title.setOrigin(0.5);
@@ -31,8 +44,8 @@ export class SceneGameOver extends Phaser.Scene {
         this.btnRestart.setInteractive();
 
         this.btnRestart.on("pointerover", function () {
-            this.btnRestart.setTexture("sprBtnRestartHover"); // set the button texture to sprBtnPlayHover
-            this.sfx.btnOver.play(); // play the button over sound
+            this.btnRestart.setTexture("sprBtnRestartHover");
+            this.sfx.btnOver.play();
         }, this);
 
         this.btnRestart.on("pointerout", function () {

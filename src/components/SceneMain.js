@@ -106,37 +106,13 @@ export class SceneMain extends Phaser.Scene {
         this.time.addEvent({
             delay: 1000,
             callback: function () {
-                var enemy = null;
 
-                if (Phaser.Math.Between(0, 10) >= 3) {
-                    enemy = new GunShip(
-                        this,
-                        Phaser.Math.Between(0, this.game.config.width),
-                        0
-                    );
-                }
-                else if (Phaser.Math.Between(0, 10) >= 5) {
-                    if (this.getEnemiesByType("ChaserShip").length < 5) {
-
-                        enemy = new ChaserShip(
-                            this,
-                            Phaser.Math.Between(0, this.game.config.width),
-                            0
-                        );
-                    }
-                }
-                else {
-                    enemy = new CarrierShip(
-                        this,
-                        Phaser.Math.Between(0, this.game.config.width),
-                        0
-                    );
-                }
-
-                if (enemy !== null) {
-                    enemy.setScale(Phaser.Math.Between(10, 20) * 0.1);
-                    this.enemies.add(enemy);
-                }
+                var enemy = new GunShip(
+                    this,
+                    Phaser.Math.Between(0, this.game.config.width),
+                    0
+                );
+                this.enemies.add(enemy);
             },
             callbackScope: this,
             loop: true

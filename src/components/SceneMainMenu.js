@@ -13,77 +13,77 @@ import { ScrollingBackground } from './Entities';
 
 
 export class SceneMainMenu extends Phaser.Scene {
-    constructor() {
-        super({ key: "SceneMainMenu" });
-    }
+  constructor() {
+    super({ key: 'SceneMainMenu' });
+  }
 
-    preload() {
-        this.load.image("sprBg0", image0);
-        this.load.image("sprBg1", image1);
-        this.load.image("sprBtnPlay", play);
-        this.load.image("sprBtnPlayHover", playHover);
-        this.load.image("sprBtnPlayDown", playDown);
-        this.load.image("sprBtnRestart", restart);
-        this.load.image("sprBtnRestartHover", restartHover);
-        this.load.image("sprBtnRestartDown", restartDown);
-        this.load.audio("sndBtnOver", soundOver);
-        this.load.audio("sndBtnDown", soundDown);
-    }
+  preload() {
+    this.load.image('sprBg0', image0);
+    this.load.image('sprBg1', image1);
+    this.load.image('sprBtnPlay', play);
+    this.load.image('sprBtnPlayHover', playHover);
+    this.load.image('sprBtnPlayDown', playDown);
+    this.load.image('sprBtnRestart', restart);
+    this.load.image('sprBtnRestartHover', restartHover);
+    this.load.image('sprBtnRestartDown', restartDown);
+    this.load.audio('sndBtnOver', soundOver);
+    this.load.audio('sndBtnDown', soundDown);
+  }
 
-    create() {
-        this.sfx = {
-            btnOver: this.sound.add("sndBtnOver"),
-            btnDown: this.sound.add("sndBtnDown")
-        };
+  create() {
+    this.sfx = {
+      btnOver: this.sound.add('sndBtnOver'),
+      btnDown: this.sound.add('sndBtnDown'),
+    };
 
-        this.btnPlay = this.add.sprite(
-            this.game.config.width * 0.5,
-            this.game.config.height * 0.5,
-            "sprBtnPlay"
-        );
+    this.btnPlay = this.add.sprite(
+      this.game.config.width * 0.5,
+      this.game.config.height * 0.5,
+      'sprBtnPlay',
+    );
 
-        this.btnPlay.setInteractive();
+    this.btnPlay.setInteractive();
 
-        this.btnPlay.on("pointerover", function () {
-            this.btnPlay.setTexture("sprBtnPlayHover"); // set the button texture to sprBtnPlayHover
-            this.sfx.btnOver.play(); // play the button over sound
-        }, this);
+    this.btnPlay.on('pointerover', function () {
+      this.btnPlay.setTexture('sprBtnPlayHover'); // set the button texture to sprBtnPlayHover
+      this.sfx.btnOver.play(); // play the button over sound
+    }, this);
 
-        this.btnPlay.on("pointerout", function () {
-            this.setTexture("sprBtnPlay");
-        });
+    this.btnPlay.on('pointerout', function () {
+      this.setTexture('sprBtnPlay');
+    });
 
-        this.btnPlay.on("pointerdown", function () {
-            this.btnPlay.setTexture("sprBtnPlayDown");
-            this.sfx.btnDown.play();
-        }, this);
+    this.btnPlay.on('pointerdown', function () {
+      this.btnPlay.setTexture('sprBtnPlayDown');
+      this.sfx.btnDown.play();
+    }, this);
 
-        this.btnPlay.on("pointerup", function () {
-            this.btnPlay.setTexture("sprBtnPlay");
-            this.scene.start("SceneMain");
-        }, this);
+    this.btnPlay.on('pointerup', function () {
+      this.btnPlay.setTexture('sprBtnPlay');
+      this.scene.start('SceneMain');
+    }, this);
 
-        this.title = this.add.text(this.game.config.width * 0.5, 128, "SPACE WAR", {
-            fontFamily: 'monospace',
-            fontSize: 48,
-            fontStyle: 'bold',
-            color: '#ffffff',
-            align: 'center'
-        });
-        this.title.setOrigin(0.5);
+    this.title = this.add.text(this.game.config.width * 0.5, 128, 'SPACE WAR', {
+      fontFamily: 'monospace',
+      fontSize: 48,
+      fontStyle: 'bold',
+      color: '#ffffff',
+      align: 'center',
+    });
+    this.title.setOrigin(0.5);
 
-        //this.backgrounds = [];
-        //for (var i = 0; i < 5; i++) {
-        //    var keys = ["sprBg0", "sprBg1"];
-        //    var key = keys[Phaser.Math.Between(0, keys.length - 1)];
-        //    var bg = new ScrollingBackground(this, key, i * 10);
-        //    this.backgrounds.push(bg);
-        //}
-    }
+    // this.backgrounds = [];
+    // for (var i = 0; i < 5; i++) {
+    //    var keys = ["sprBg0", "sprBg1"];
+    //    var key = keys[Phaser.Math.Between(0, keys.length - 1)];
+    //    var bg = new ScrollingBackground(this, key, i * 10);
+    //    this.backgrounds.push(bg);
+    // }
+  }
 
-    update() {
-        //for (var i = 0; i < this.backgrounds.length; i++) {
-        //    this.backgrounds[i].update();
-        //}
-    }
+  update() {
+    // for (var i = 0; i < this.backgrounds.length; i++) {
+    //    this.backgrounds[i].update();
+    // }
+  }
 }

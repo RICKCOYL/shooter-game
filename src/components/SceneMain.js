@@ -78,8 +78,8 @@ export class SceneMain extends Phaser.Scene {
     };
 
     // this.backgrounds = [];
-    // for (var i = 0; i < 5; i++) {
-    //    var bg = new ScrollingBackground(this, "sprBg0", i * 10);
+    // for (let i = 0; i < 5; i++) {
+    //    let bg = new ScrollingBackground(this, "sprBg0", i * 10);
     //    this.backgrounds.push(bg);
     // }
 
@@ -176,7 +176,7 @@ export class SceneMain extends Phaser.Scene {
       }
     }
 
-    for (var i = 0; i < this.enemies.getChildren().length; i++) {
+    for (let i = 0; i < this.enemies.getChildren().length; i++) {
       const enemy = this.enemies.getChildren()[i];
 
       enemy.update();
@@ -194,8 +194,8 @@ export class SceneMain extends Phaser.Scene {
       }
     }
 
-    for (var i = 0; i < this.enemyLasers.getChildren().length; i++) {
-      var laser = this.enemyLasers.getChildren()[i];
+    for (let i = 0; i < this.enemyLasers.getChildren().length; i++) {
+      const laser = this.enemyLasers.getChildren()[i];
       laser.update();
       if (laser.x < -laser.displayWidth
                 || laser.x > this.game.config.width + laser.displayWidth
@@ -207,8 +207,8 @@ export class SceneMain extends Phaser.Scene {
       }
     }
 
-    for (var i = 0; i < this.playerLasers.getChildren().length; i++) {
-      var laser = this.playerLasers.getChildren()[i];
+    for (let i = 0; i < this.playerLasers.getChildren().length; i++) {
+      const laser = this.playerLasers.getChildren()[i];
       laser.update();
       if (laser.x < -laser.displayWidth
                 || laser.x > this.game.config.width + laser.displayWidth
@@ -220,7 +220,7 @@ export class SceneMain extends Phaser.Scene {
       }
     }
 
-    // for (var i = 0; i < this.backgrounds.length; i++) {
+    // for (let i = 0; i < this.backgrounds.length; i++) {
     //    this.backgrounds[i].update();
     // }
   }

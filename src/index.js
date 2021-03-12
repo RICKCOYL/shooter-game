@@ -6,6 +6,7 @@ import BootScene from './components/bootsscene';
 import Preloaderscene from './components/preloaderscene';
 import formStringElement from './components/form';
 import state from './components/state';
+import './style.css';
 
 const config = {
     type: Phaser.AUTO,

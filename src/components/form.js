@@ -3,7 +3,7 @@ export default `
     <h3>SHOOTER WARS</h3>
     <form name="playerNameForm">
         <div>
-            <input type="text" name="player-name" placeholder="Enter player's name" required />
+            <input type="text" name="player-name" placeholder="Enter player name" required />
         </div>
         <button class="btn">Proceed to Game</button>
     </form>

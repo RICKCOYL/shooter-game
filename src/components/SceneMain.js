@@ -78,11 +78,11 @@ export class SceneMain extends Phaser.Scene {
             laser: this.sound.add("sndLaser")
         };
 
-        this.backgrounds = [];
-        for (var i = 0; i < 5; i++) {
-            var bg = new ScrollingBackground(this, "sprBg0", i * 10);
-            this.backgrounds.push(bg);
-        }
+        //this.backgrounds = [];
+        //for (var i = 0; i < 5; i++) {
+        //    var bg = new ScrollingBackground(this, "sprBg0", i * 10);
+        //    this.backgrounds.push(bg);
+        //}
 
         this.player = new Player(
             this,
@@ -226,8 +226,8 @@ export class SceneMain extends Phaser.Scene {
             }
         }
 
-        for (var i = 0; i < this.backgrounds.length; i++) {
-            this.backgrounds[i].update();
-        }
+        //for (var i = 0; i < this.backgrounds.length; i++) {
+        //    this.backgrounds[i].update();
+        //}
     }
 }

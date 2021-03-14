@@ -10,11 +10,14 @@ import explodeEffect0 from '../assests/sndExplode0.wav';
 import explodeEffect1 from '../assests/sndExplode1.wav';
 import laserSound from '../assests/sndLaser.wav';
 import { Player, GunShip, ScrollingBackground } from './Entities';
+import hitEnemy from '../components/point handler/hitEnemy';
+import hitPlayer from './point handler/hitPlayer';
 
 
 export class SceneMain extends Phaser.Scene {
   constructor() {
     super({ key: 'SceneMain' });
+    this.score = 0;
   }
 
   preload() {
@@ -126,7 +129,7 @@ export class SceneMain extends Phaser.Scene {
 
     this.physics.add.overlap(this.player, this.enemies, (player, enemy) => {
       if (!player.getData('isDead')
-                && !enemy.getData('isDead')) {
+        && !enemy.getData('isDead')) {
         player.explode(false);
         player.onDestroy();
         enemy.explode(true);
@@ -135,12 +138,19 @@ export class SceneMain extends Phaser.Scene {
 
     this.physics.add.overlap(this.player, this.enemyLasers, (player, laser) => {
       if (!player.getData('isDead')
-                && !laser.getData('isDead')) {
+        && !laser.getData('isDead')) {
         player.explode(false);
         player.onDestroy();
         laser.destroy();
       }
     });
+
+    this.physics.add.collider(this.playerLasers, this.enemies, hitEnemy(this));
+
+    this.physics.add.overlap(this.player, this.enemies, hitPlayer);
+
+    this.physics.add.overlap(this.player, this.enemyLasers, hitPlayer);
+
   }
 
   getEnemiesByType(type) {
@@ -182,9 +192,9 @@ export class SceneMain extends Phaser.Scene {
       enemy.update();
 
       if (enemy.x < -enemy.displayWidth
-                || enemy.x > this.game.config.width + enemy.displayWidth
-                || enemy.y < -enemy.displayHeight * 4
-                || enemy.y > this.game.config.height + enemy.displayHeight) {
+        || enemy.x > this.game.config.width + enemy.displayWidth
+        || enemy.y < -enemy.displayHeight * 4
+        || enemy.y > this.game.config.height + enemy.displayHeight) {
         if (enemy) {
           if (enemy.onDestroy !== undefined) {
             enemy.onDestroy();
@@ -198,9 +208,9 @@ export class SceneMain extends Phaser.Scene {
       const laser = this.enemyLasers.getChildren()[i];
       laser.update();
       if (laser.x < -laser.displayWidth
-                || laser.x > this.game.config.width + laser.displayWidth
-                || laser.y < -laser.displayHeight * 4
-                || laser.y > this.game.config.height + laser.displayHeight) {
+        || laser.x > this.game.config.width + laser.displayWidth
+        || laser.y < -laser.displayHeight * 4
+        || laser.y > this.game.config.height + laser.displayHeight) {
         if (laser) {
           laser.destroy();
         }
@@ -211,9 +221,9 @@ export class SceneMain extends Phaser.Scene {
       const laser = this.playerLasers.getChildren()[i];
       laser.update();
       if (laser.x < -laser.displayWidth
-                || laser.x > this.game.config.width + laser.displayWidth
-                || laser.y < -laser.displayHeight * 4
-                || laser.y > this.game.config.height + laser.displayHeight) {
+        || laser.x > this.game.config.width + laser.displayWidth
+        || laser.y < -laser.displayHeight * 4
+        || laser.y > this.game.config.height + laser.displayHeight) {
         if (laser) {
           laser.destroy();
         }

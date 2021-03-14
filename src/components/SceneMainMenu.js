@@ -10,6 +10,9 @@ import restartDown from '../assests/sprBtnRestartDown.png';
 import soundOver from '../assests/sndBtnOver.wav';
 import soundDown from '../assests/sndBtnDown.wav';
 import { ScrollingBackground } from './Entities';
+import button2 from '../assests/blue_button03.png';
+import button1 from '../assests/blue_button02.png';
+
 
 
 export class SceneMainMenu extends Phaser.Scene {
@@ -45,8 +48,8 @@ export class SceneMainMenu extends Phaser.Scene {
     this.btnPlay.setInteractive();
 
     this.btnPlay.on('pointerover', function () {
-      this.btnPlay.setTexture('sprBtnPlayHover'); // set the button texture to sprBtnPlayHover
-      this.sfx.btnOver.play(); // play the button over sound
+      this.btnPlay.setTexture('sprBtnPlayHover');
+      this.sfx.btnOver.play();
     }, this);
 
     this.btnPlay.on('pointerout', function () {
@@ -79,6 +82,44 @@ export class SceneMainMenu extends Phaser.Scene {
     //    let bg = new ScrollingBackground(this, key, i * 10);
     //    this.backgrounds.push(bg);
     // }
+
+
+
+
+    this.input.on('pointerover', (event, gameObjects) => {
+      gameObjects[0].setTexture('button2');
+    });
+
+    this.input.on('pointerout', (event, gameObjects) => {
+      gameObjects[0].setTexture('button1');
+    });
+
+    this.highButton = this.add.sprite(100, 200, 'button2').setInteractive();
+    this.centerButton(this.highButton);
+
+    this.highButtonText = this.add.text(0, 0, 'LeaderBoard', { fontSize: '32px', fill: '#fff' });
+    this.centerButtonText(this.highButtonText, this.highButton);
+
+    this.highButton.on('pointerdown', () => {
+      this.scene.start('leaderboardScene');
+    });
+  }
+
+  centerButton(gameObject, offset = 0) {
+    const x = this.game.config.width / 6.5;
+    const y = this.game.config.height / 7 - offset * 100;
+    Phaser.Display.Align.In.Center(
+      gameObject,
+      this.add.zone(x, y, this.game.config.width, this.game.config.height),
+    );
+  }
+
+  centerButtonText(gameText, gameButton) {
+    Phaser.Display.Align.In.Center(
+      gameText,
+      gameButton,
+    );
+    return this;
   }
 
   update() {

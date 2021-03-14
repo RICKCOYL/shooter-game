@@ -5,7 +5,7 @@ import soundDown from '../assests/sndBtnDown.wav';
 import restartHover from '../assests/sprBtnRestartHover.png';
 
 
-export class SceneGameOver extends Phaser.Scene {
+export default class SceneGameOver extends Phaser.Scene {
   constructor() {
     super({ key: 'SceneGameOver' });
   }

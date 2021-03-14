@@ -15,7 +15,7 @@ import hitEnemy from './point handler/hitEnemy';
 import hitPlayer from './point handler/hitPlayer';
 
 
-export class SceneMain extends Phaser.Scene {
+export default class SceneMain extends Phaser.Scene {
   constructor() {
     super({ key: 'SceneMain' });
     this.score = 0;
@@ -88,7 +88,7 @@ export class SceneMain extends Phaser.Scene {
       'sprPlayer',
     );
 
-    //this.scoreText = this.add.text(10, 10, 'score: 0', { fontSize: '20px', fill: '#fff' });
+    // this.scoreText = this.add.text(10, 10, 'score: 0', { fontSize: '20px', fill: '#fff' });
 
     this.keyW = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.UP);
     this.keyS = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.DOWN);
@@ -147,7 +147,6 @@ export class SceneMain extends Phaser.Scene {
     this.physics.add.overlap(this.player, this.enemies, hitPlayer);
 
     this.physics.add.overlap(this.player, this.enemyLasers, hitPlayer);
-
   }
 
   update() {
@@ -215,9 +214,5 @@ export class SceneMain extends Phaser.Scene {
         }
       }
     }
-
   }
-
-
-
 }

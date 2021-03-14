@@ -11,8 +11,7 @@ import soundOver from '../assests/sndBtnOver.wav';
 import soundDown from '../assests/sndBtnDown.wav';
 
 
-
-export class SceneMainMenu extends Phaser.Scene {
+export default class SceneMainMenu extends Phaser.Scene {
   constructor() {
     super({ key: 'SceneMainMenu' });
   }
@@ -81,8 +80,6 @@ export class SceneMainMenu extends Phaser.Scene {
     // }
 
 
-
-
     this.input.on('pointerover', (event, gameObjects) => {
       gameObjects[0].setTexture('button2');
     });
@@ -119,9 +116,9 @@ export class SceneMainMenu extends Phaser.Scene {
     return this;
   }
 
-  update() {
-    // for (let i = 0; i < this.backgrounds.length; i++) {
-    //    this.backgrounds[i].update();
-    // }
-  }
+  // update() {
+  // for (let i = 0; i < this.backgrounds.length; i++) {
+  //    this.backgrounds[i].update();
+  // }
+  // }
 }

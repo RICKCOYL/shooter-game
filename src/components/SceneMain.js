@@ -88,7 +88,7 @@ export class SceneMain extends Phaser.Scene {
       'sprPlayer',
     );
 
-    this.scoreText = this.add.text(10, 10, 'score: 0', { fontSize: '20px', fill: '#fff' });
+    //this.scoreText = this.add.text(10, 10, 'score: 0', { fontSize: '20px', fill: '#fff' });
 
     this.keyW = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.UP);
     this.keyS = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.DOWN);

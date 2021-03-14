@@ -29,6 +29,7 @@ export default class GunShip extends Entity {
             if (this.shootTimer) {
                 this.shootTimer.remove(false);
             }
+            this.scene.score += 1;
         }
     }
 }

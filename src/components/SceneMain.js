@@ -94,6 +94,8 @@ export class SceneMain extends Phaser.Scene {
       'sprPlayer',
     );
 
+    this.scoreText = this.add.text(10, 10, 'score: 0', { fontSize: '20px', fill: '#fff' });
+
     this.keyW = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.UP);
     this.keyS = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.DOWN);
     this.keyA = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.LEFT);
@@ -152,17 +154,6 @@ export class SceneMain extends Phaser.Scene {
 
     this.physics.add.overlap(this.player, this.enemyLasers, hitPlayer);
 
-  }
-
-  getEnemiesByType(type) {
-    const arr = [];
-    for (let i = 0; i < this.enemies.getChildren().length; i++) {
-      const enemy = this.enemies.getChildren()[i];
-      if (enemy.getData('type') == type) {
-        arr.push(enemy);
-      }
-    }
-    return arr;
   }
 
   update() {

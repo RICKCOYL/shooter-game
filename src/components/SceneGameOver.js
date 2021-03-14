@@ -1,5 +1,4 @@
 import Phaser from 'phaser';
-import { ScrollingBackground } from './Entities';
 import sndBtnOver from '../assests/sndBtnOver.wav';
 import restart from '../assests/sprBtnRestart.png';
 import soundDown from '../assests/sndBtnDown.wav';

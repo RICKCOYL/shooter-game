@@ -36,6 +36,7 @@ export default class leaderboardScene extends Phaser.Scene {
                 this.displayName(displayText, textOffset, 18);
             });
         }).catch(e => e);
+
     }
 
     centerButton(gameObject) {
@@ -68,19 +69,5 @@ export default class leaderboardScene extends Phaser.Scene {
         this.name.setOrigin(0.5);
     }
 
-    onDestroy() {
-        this.scene.time.addEvent({
-            delay: 1000,
-            callback() {
-                state.score = this.scene.score;
-                if (this.scene.score > 0) {
-                    api.saveScore(state).then(data => data).catch(e => e);
-                }
-                this.scene.score = 0;
-                this.scene.scene.start('SceneGameOver');
-            },
-            callbackScope: this,
-            loop: false,
-        });
-    }
+
 }

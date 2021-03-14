@@ -1,5 +1,7 @@
 import Entity from './entitiyclass';
 import PlayerLaser from './playerLaser';
+import state from '../state';
+import api from '../api';
 
 export default class Player extends Entity {
     constructor(scene, x, y, key) {
@@ -28,16 +30,16 @@ export default class Player extends Entity {
         this.body.velocity.x = this.getData('speed');
     }
 
-    onDestroy() {
-        this.scene.time.addEvent({ // go to game over scene
-            delay: 1000,
-            callback() {
-                this.scene.scene.start('SceneGameOver');
-            },
-            callbackScope: this,
-            loop: false,
-        });
-    }
+    //onDestroy() {
+    //    this.scene.time.addEvent({ // go to game over scene
+    //        delay: 1000,
+    //        callback() {
+    //            this.scene.scene.start('SceneGameOver');
+    //        },
+    //        callbackScope: this,
+    //        loop: false,
+    //    });
+    //}
 
     update() {
         this.body.setVelocity(0, 0);
@@ -57,19 +59,19 @@ export default class Player extends Entity {
         }
     }
 
-    //onDestroy() {
-    //    this.scene.time.addEvent({
-    //        delay: 1000,
-    //        callback() {
-    //            state.score = this.scene.score;
-    //            if (this.scene.score > 0) {
-    //                api.saveScore(state).then(data => data).catch(e => e);
-    //            }
-    //            this.scene.score = 0;
-    //            this.scene.scene.start('SceneGameOver');
-    //        },
-    //        callbackScope: this,
-    //        loop: false,
-    //    });
-    //}
+    onDestroy() {
+        this.scene.time.addEvent({
+            delay: 1000,
+            callback() {
+                state.score = this.scene.score;
+                if (this.scene.score > 0) {
+                    api.saveScore(state).then(data => data).catch(e => e);
+                }
+                this.scene.score = 0;
+                this.scene.scene.start('SceneGameOver');
+            },
+            callbackScope: this,
+            loop: false,
+        });
+    }
 }

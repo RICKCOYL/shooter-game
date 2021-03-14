@@ -7,7 +7,7 @@ export default class leaderboardScene extends Phaser.Scene {
     }
 
     create() {
-        this.menuButton = this.add.sprite(100, 200, 'blueButton1').setInteractive();
+        this.menuButton = this.add.sprite(100, 200, 'button1').setInteractive();
         this.centerButton(this.menuButton, 4);
 
         this.menuText = this.add.text(0, 0, 'Menu', { fontSize: '32px', fill: '#fff' });
@@ -18,11 +18,11 @@ export default class leaderboardScene extends Phaser.Scene {
         });
 
         this.input.on('pointerover', (event, gameObjects) => {
-            gameObjects[0].setTexture('blueButton2');
+            gameObjects[0].setTexture('button2');
         });
 
         this.input.on('pointerout', (event, gameObjects) => {
-            gameObjects[0].setTexture('blueButton1');
+            gameObjects[0].setTexture('button1');
         });
 
         this.displayName('Top 3 Highscores', 1, 32);
@@ -66,5 +66,21 @@ export default class leaderboardScene extends Phaser.Scene {
             align: 'center',
         });
         this.name.setOrigin(0.5);
+    }
+
+    onDestroy() {
+        this.scene.time.addEvent({
+            delay: 1000,
+            callback() {
+                state.score = this.scene.score;
+                if (this.scene.score > 0) {
+                    api.saveScore(state).then(data => data).catch(e => e);
+                }
+                this.scene.score = 0;
+                this.scene.scene.start('SceneGameOver');
+            },
+            callbackScope: this,
+            loop: false,
+        });
     }
 }

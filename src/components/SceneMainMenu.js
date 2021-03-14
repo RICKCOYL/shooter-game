@@ -9,9 +9,6 @@ import restartHover from '../assests/sprBtnRestartHover.png';
 import restartDown from '../assests/sprBtnRestartDown.png';
 import soundOver from '../assests/sndBtnOver.wav';
 import soundDown from '../assests/sndBtnDown.wav';
-import { ScrollingBackground } from './Entities';
-import button2 from '../assests/blue_button03.png';
-import button1 from '../assests/blue_button02.png';
 
 
 
@@ -97,7 +94,7 @@ export class SceneMainMenu extends Phaser.Scene {
     this.highButton = this.add.sprite(100, 200, 'button2').setInteractive();
     this.centerButton(this.highButton);
 
-    this.highButtonText = this.add.text(0, 0, 'LeaderBoard', { fontSize: '32px', fill: '#fff' });
+    this.highButtonText = this.add.text(0, 0, 'Scores', { fontSize: '32px', fill: '#fff' });
     this.centerButtonText(this.highButtonText, this.highButton);
 
     this.highButton.on('pointerdown', () => {

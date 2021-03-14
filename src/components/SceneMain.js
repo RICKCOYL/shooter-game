@@ -9,8 +9,9 @@ import player from '../assests/sprPlayer.png';
 import explodeEffect0 from '../assests/sndExplode0.wav';
 import explodeEffect1 from '../assests/sndExplode1.wav';
 import laserSound from '../assests/sndLaser.wav';
-import { Player, GunShip, ScrollingBackground } from './Entities';
-import hitEnemy from '../components/point handler/hitEnemy';
+import Player from './entities/playerclass';
+import GunShip from './entities/gunship';
+import hitEnemy from './point handler/hitEnemy';
 import hitPlayer from './point handler/hitPlayer';
 
 
@@ -234,4 +235,7 @@ export class SceneMain extends Phaser.Scene {
     //    this.backgrounds[i].update();
     // }
   }
+
+
+
 }

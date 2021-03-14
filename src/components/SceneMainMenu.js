@@ -107,10 +107,4 @@ export default class SceneMainMenu extends Phaser.Scene {
     );
     return this;
   }
-
-  // update() {
-  // for (let i = 0; i < this.backgrounds.length; i++) {
-  //    this.backgrounds[i].update();
-  // }
-  // }
 }

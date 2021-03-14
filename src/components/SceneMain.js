@@ -1,3 +1,4 @@
+/* eslint-disable no-plusplus */
 import Phaser from 'phaser';
 import explosions from '../assests/sprExplosion.png';
 import enemy0 from '../assests/sprEnemy0.png';

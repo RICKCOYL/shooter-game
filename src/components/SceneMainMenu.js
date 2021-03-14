@@ -43,21 +43,21 @@ export default class SceneMainMenu extends Phaser.Scene {
 
     this.btnPlay.setInteractive();
 
-    this.btnPlay.on('pointerover', function () {
+    this.btnPlay.on('pointerover', () => {
       this.btnPlay.setTexture('sprBtnPlayHover');
       this.sfx.btnOver.play();
     }, this);
 
-    this.btnPlay.on('pointerout', function () {
+    this.btnPlay.on('pointerout', () => {
       this.setTexture('sprBtnPlay');
     });
 
-    this.btnPlay.on('pointerdown', function () {
+    this.btnPlay.on('pointerdown', () => {
       this.btnPlay.setTexture('sprBtnPlayDown');
       this.sfx.btnDown.play();
     }, this);
 
-    this.btnPlay.on('pointerup', function () {
+    this.btnPlay.on('pointerup', () => {
       this.btnPlay.setTexture('sprBtnPlay');
       this.scene.start('SceneMain');
     }, this);
@@ -70,14 +70,6 @@ export default class SceneMainMenu extends Phaser.Scene {
       align: 'center',
     });
     this.title.setOrigin(0.5);
-
-    // this.backgrounds = [];
-    // for (let i = 0; i < 5; i++) {
-    //    let keys = ["sprBg0", "sprBg1"];
-    //    let key = keys[Phaser.Math.Between(0, keys.length - 1)];
-    //    let bg = new ScrollingBackground(this, key, i * 10);
-    //    this.backgrounds.push(bg);
-    // }
 
 
     this.input.on('pointerover', (event, gameObjects) => {

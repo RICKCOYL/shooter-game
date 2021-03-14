@@ -81,12 +81,6 @@ export class SceneMain extends Phaser.Scene {
       laser: this.sound.add('sndLaser'),
     };
 
-    // this.backgrounds = [];
-    // for (let i = 0; i < 5; i++) {
-    //    let bg = new ScrollingBackground(this, "sprBg0", i * 10);
-    //    this.backgrounds.push(bg);
-    // }
-
     this.player = new Player(
       this,
       this.game.config.width * 0.5,
@@ -222,9 +216,6 @@ export class SceneMain extends Phaser.Scene {
       }
     }
 
-    // for (let i = 0; i < this.backgrounds.length; i++) {
-    //    this.backgrounds[i].update();
-    // }
   }
 
 

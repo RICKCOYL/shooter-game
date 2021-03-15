@@ -6,7 +6,7 @@ import enemy1 from '../assests/sprEnemy1.png';
 import enemy2 from '../assests/sprEnemy2.png';
 import enemyLaser0 from '../assests/sprLaserEnemy0.png';
 import playerLaser from '../assests/sprLaserPlayer.png';
-import player from '../assests/sprPlayer.png';
+import player from '../assests/player.png';
 import explodeEffect0 from '../assests/sndExplode0.wav';
 import explodeEffect1 from '../assests/sndExplode1.wav';
 import laserSound from '../assests/sndLaser.wav';
@@ -39,7 +39,7 @@ export default class SceneMain extends Phaser.Scene {
     this.load.image('sprLaserEnemy0', enemyLaser0);
     this.load.image('sprLaserPlayer', playerLaser);
     this.load.spritesheet('sprPlayer', player, {
-      frameWidth: 16,
+      frameWidth: 28,
       frameHeight: 16,
     });
 

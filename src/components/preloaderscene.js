@@ -5,7 +5,8 @@ import enemy1 from '../assests/sprEnemy1.png';
 import enemy2 from '../assests/sprEnemy2.png';
 import enemyLaser0 from '../assests/sprLaserEnemy0.png';
 import playerLaser from '../assests/sprLaserPlayer.png';
-import player from '../assests/sprPlayer.png';
+import player from '../assests/player.png';
+
 import explodeEffect0 from '../assests/sndExplode0.wav';
 import explodeEffect1 from '../assests/sndExplode1.wav';
 import laserSound from '../assests/sndLaser.wav';

@@ -4,6 +4,9 @@
 
 > Shooter wars is a Top-Down Space [Shooter Game](https://en.m.wikipedia.org/wiki/Shooter_game), where the player's space ship aims to destroy enemies' spacecraft thereby accumulating point while avoiding being hit by the enemy.
 
+## Game design document
+You can check the updated GDD  [here](https://www.notion.so/microverse/Shooter-game-203e819041c7486bb36f9e65faecba27) and [API](https://www.notion.so/microverse/Leaderboard-API-service-24c0c3c116974ac49488d4eb0267ade3)
+
 ![screenshot](./src/assests/screenshot.png)
 
 ## How To Play
@@ -64,7 +67,7 @@ git clone git@github.com:RICKCOYL/shooter-game.git
 ## Testing
 
 1) Open the Terminal
-2) Run ```cd shooter-gamer``` to enter the main directory
+2) Run ```cd shooter-game``` to enter the main directory
 3) Run ```npm test```
 
 ## Author

@@ -89,6 +89,8 @@ export default class SceneMain extends Phaser.Scene {
       'sprPlayer',
     );
 
+    this.scoreText = this.add.text(10, 10, 'score: 0', { fontSize: '20px', fill: '#fff' });
+
     this.keyW = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.UP);
     this.keyS = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.DOWN);
     this.keyA = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.LEFT);
@@ -99,47 +101,42 @@ export default class SceneMain extends Phaser.Scene {
     this.enemyLasers = this.add.group();
     this.playerLasers = this.add.group();
 
+    // this.time.addEvent({
+    //  delay: 1000,
+    //  callback() {
+    //    const enemy = new GunShip(
+    //      this,
+    //      Phaser.Math.Between(0, this.game.config.width),
+    //      0,
+    //    );
+    //    this.enemies.add(enemy);
+    //  },
+    //  callbackScope: this,
+    //  loop: true,
+    // });
+
+
     this.time.addEvent({
       delay: 1000,
       callback() {
-        const enemy = new GunShip(
-          this,
-          Phaser.Math.Between(0, this.game.config.width),
-          0,
-        );
-        this.enemies.add(enemy);
+        let enemy = null;
+
+        if (Phaser.Math.Between(0, 10) >= 6) {
+          enemy = new GunShip(
+            this,
+            Phaser.Math.Between(0, this.game.config.width),
+            0,
+          );
+        }
+
+        if (enemy !== null) {
+          this.enemies.add(enemy);
+        }
       },
       callbackScope: this,
       loop: true,
     });
 
-    this.physics.add.collider(this.playerLasers, this.enemies, (playerLaser, enemy) => {
-      if (enemy) {
-        if (enemy.onDestroy !== undefined) {
-          enemy.onDestroy();
-        }
-        enemy.explode(true);
-        playerLaser.destroy();
-      }
-    });
-
-    this.physics.add.overlap(this.player, this.enemies, (player, enemy) => {
-      if (!player.getData('isDead')
-        && !enemy.getData('isDead')) {
-        player.explode(false);
-        player.onDestroy();
-        enemy.explode(true);
-      }
-    });
-
-    this.physics.add.overlap(this.player, this.enemyLasers, (player, laser) => {
-      if (!player.getData('isDead')
-        && !laser.getData('isDead')) {
-        player.explode(false);
-        player.onDestroy();
-        laser.destroy();
-      }
-    });
 
     this.physics.add.collider(this.playerLasers, this.enemies, hitEnemy(this));
 

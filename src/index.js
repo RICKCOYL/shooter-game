@@ -31,7 +31,7 @@ const config = {
   pixelArt: true,
   roundPixels: true,
 };
-// const game = new Phaser.Game(config);
+
 
 document.body.innerHTML = formStringElement;
 

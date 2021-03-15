@@ -57,8 +57,8 @@ git clone git@github.com:RICKCOYL/shooter-game.git
 
 3) Run ```cd shooter-game``` to enter the main directory
 4) Run ```npm install```
-5) Run ```npm run devserver```
-6) Visit ```http://localhost:8080``` in your browser to play
+5) Run ```npm run start```
+6) Run the index.html on live sever to play the game
 7) Happy playing!
 
 ## Testing
@@ -80,7 +80,7 @@ git clone git@github.com:RICKCOYL/shooter-game.git
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page](issues/).
+Feel free to check the [issues page](https://github.com/RICKCOYL/shooter-game/issues).
 
 ## Show your support
 

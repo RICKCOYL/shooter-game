@@ -49,7 +49,7 @@ export default class SceneMainMenu extends Phaser.Scene {
     }, this);
 
     this.btnPlay.on('pointerout', () => {
-      this.setTexture('sprBtnPlay');
+      this.btnPlay.setTexture('sprBtnPlay');
     });
 
     this.btnPlay.on('pointerdown', () => {

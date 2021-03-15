@@ -1,5 +1,8 @@
-async function saveData(name, score) {
-  const gameId = 'SOvyXC9TPpxsz1qmobKj';
+/* eslint-disable import/no-extraneous-dependencies */
+import 'regenerator-runtime/runtime';
+
+const saveData = async (name, score) => {
+  const gameId = 'ra3fRyGk5YDmKWRuFXwR';
   const request = `https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/${gameId}/scores`;
 
   /* eslint-disable */
@@ -24,7 +27,7 @@ async function saveData(name, score) {
     } catch (error) {
         return 'Error found';
     }
-}
+};
 
 export { saveData };
   /* eslint-enable */
